@@ -25,3 +25,7 @@ const conteudo = [
 ].join('\n');
 fs.writeFileSync(arq, conteudo, { mode: 0o600 });
 console.log('[setup] .env criado (permissão 600). Inicie com: npm start');
+
+if (process.env.NODE_ENV === 'production' || process.env.RENDER || process.env.VERCEL || process.env.CI) {
+  process.exit(0);
+}
