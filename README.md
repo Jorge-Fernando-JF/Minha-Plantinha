@@ -1,3 +1,35 @@
+# 🌱 Minha Plantinha
+
+**Minha Plantinha** é um aplicativo web educativo em que crianças cuidam de uma planta virtual, aprendem sobre botânica e sustentabilidade e desbloqueiam conquistas pelo caminho. Ele transforma o cuidado diário com a planta em uma forma divertida de aprender sobre o meio ambiente.
+
+## Funcionalidades
+
+- **Cuidados com a planta:** crie uma plantinha (o feijão é o exemplo inicial), faça os cuidados do dia, como regar e observar a luz, e acompanhe o crescimento ao longo do tempo.
+- **Progresso e calendário:** veja as etapas de crescimento da planta e o registro dos dias de cuidado.
+- **Lembretes:** avisos para não esquecer de cuidar da plantinha.
+- **Diário e fotos:** escreva no diário e guarde um registro em fotos do desenvolvimento da planta.
+- **Jornal:** artigos e curiosidades educativas sobre a natureza.
+- **Guia da planta:** lições curtas sobre germinação, partes da planta, fotossíntese, água e luz, solo, compostagem, biodiversidade e cultivo sustentável.
+- **Jogos educativos:** quiz ambiental e os desafios "Monte sua planta" e "Cuide da planta".
+- **Conquistas:** mais de 30 medalhas para desbloquear ao cuidar, aprender e explorar.
+- **Modo visitante:** experimente o app na hora, sem criar conta. Nada é salvo.
+- **Acessível e responsivo:** link para pular ao conteúdo, foco visível no teclado e layout que funciona no celular.
+
+## Tecnologias
+
+- **Frontend:** HTML, CSS e JavaScript puro, servidos a partir de `public/`
+- **Backend:** Node.js (Express) com SQLite
+
+## Estrutura do projeto
+
+```
+public/   # o site (HTML, CSS, JS)
+server/   # API, banco de dados e segurança
+tests/    # testes do backend e do navegador
+```
+
+---
+
 # Minha Plantinha v5 — backend seguro (Express + SQLite)
 
 ## Como rodar
