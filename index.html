@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#315b4a">
+<meta name="description" content="Minha Plantinha: acompanhe o cultivo da sua planta, aprenda botânica e sustentabilidade e conquiste novas etapas.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%23315b4a'/%3E%3Cpath d='M37 7C20 8 10 16 11 28c1 7 7 11 13 8C36 31 39 17 37 7Z' fill='%2391ad83'/%3E%3Cpath d='M7 41c7-13 15-20 27-27' fill='none' stroke='%23f3f0e5' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<title>Minha Plantinha</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-mode">
+<a class="skip-link" href="#conteudo-principal">Pular para o conteúdo</a>
+<noscript><p style="padding:24px;font-family:sans-serif">Este aplicativo precisa de JavaScript para funcionar.</p></noscript>
+<main class="container" id="conteudo-principal">
+
+<aside id="app-sidebar" class="app-sidebar" aria-label="Navegação principal">
+  <div class="brand-lockup">
+    <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 4C11 4 5 8 5 15c0 3 2 5 5 5 7 0 10-7 10-16Z"/><path d="M3 21c3-6 7-9 13-12"/></svg></span>
+    <div><strong>Minha Plantinha</strong><small>Educação ambiental</small></div>
+  </div>
+  <button class="sidebar-new" type="button" id="sidebar-nova-planta"><span aria-hidden="true">+</span> Nova plantinha</button>
+  <nav class="app-nav" aria-label="Seções do aplicativo">
+    <div class="nav-group aberto" data-nav-group="inicio">
+      <button class="nav-group-toggle" type="button" aria-expanded="true" aria-controls="submenu-inicio">
+        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7"/><path d="M5 9v11h14V9M9 20v-7h6v7"/></svg></span><span>Início</span><svg class="nav-chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg>
+      </button>
+      <div class="nav-subnav" id="submenu-inicio">
+        <button class="nav-item nav-link selecionado" data-nav-screen="tela-planta" type="button">Visão geral</button>
+        <button class="nav-item nav-link" data-nav-screen="tela-progresso" type="button">Progresso</button>
+        <button class="nav-item nav-link" data-nav-screen="tela-diario" type="button">Diário de cultivo</button>
+        <button class="nav-item nav-link" data-nav-screen="tela-registros" type="button">Histórico</button>
+      </div>
+    </div>
+    <div class="nav-group" data-nav-group="cultivo">
+      <button class="nav-group-toggle" type="button" aria-expanded="false" aria-controls="submenu-cultivo">
+        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 21V11"/><path d="M12 14C6 14 4 10 4 5c5 0 8 2 8 7"/><path d="M12 17c0-5 3-8 8-8 0 5-2 8-8 8Z"/></svg></span><span>Meu cultivo</span><svg class="nav-chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg>
+      </button>
+      <div class="nav-subnav" id="submenu-cultivo" hidden>
+        <button class="nav-item nav-link" data-nav-screen="tela-minha-plantinha" type="button">Minhas plantinhas</button>
+        <button class="nav-item nav-link" data-nav-screen="tela-calendario" type="button">Calendário de cuidados</button>
+        <button class="nav-item nav-link" data-nav-screen="tela-tutorial" type="button">Passo a passo do plantio</button>
+        <button class="nav-item nav-link" data-nav-screen="tela-fotos" type="button">Fotografias e árvore</button>
+      </div>
+    </div>
+    <div class="nav-group" data-nav-group="descobrir">
+      <button class="nav-group-toggle" type="button" aria-expanded="false" aria-controls="submenu-descobrir">
+        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21Z"/><path d="M4 5.5v13A2.5 2.5 0 0 1 6.5 16H20M8 7h8M8 10h6"/></svg></span><span>Descobrir</span><svg class="nav-chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg>
+      </button>
+      <div class="nav-subnav" id="submenu-descobrir" hidden>
+        <button class="nav-item nav-link" data-nav-screen="tela-jornal" type="button">Jornal das Plantas</button>
+        <button class="nav-item nav-link" data-nav-screen="tela-guia" type="button">Conteúdos educativos</button>
+        <button class="nav-item nav-link" data-nav-screen="tela-jogos" type="button">Jogos educativos</button>
+      </div>
+    </div>
+    <div class="nav-group" data-nav-group="conquistas">
+      <button class="nav-group-toggle" type="button" aria-expanded="false" aria-controls="submenu-conquistas">
+        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0Z"/><path d="M8 6H4v2a4 4 0 0 0 4 4M16 6h4v2a4 4 0 0 1-4 4M12 13v5M8 21h8M10 18h4"/></svg></span><span>Conquistas</span><svg class="nav-chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg>
+      </button>
+      <div class="nav-subnav" id="submenu-conquistas" hidden>
+        <button class="nav-item nav-link" data-nav-screen="tela-conquistas" type="button">Minhas conquistas</button>
+      </div>
+    </div>
+  </nav>
+  <div class="recent-area">
+    <div class="nav-caption">CULTIVO ATUAL</div>
+    <button class="recent-plant" data-nav-screen="tela-planta" type="button">
+      <span class="recent-plant-art" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 14v-5M12 11C7 11 6 8 6 5c4 0 6 2 6 6M12 13c0-4 3-6 7-6 0 4-2 6-7 6Z"/><path d="M5 15h14l-2 6H7Z"/></svg></span>
+      <span><strong id="sidebar-plant-name">Minha plantinha</strong><small id="sidebar-plant-status">Em acompanhamento</small></span>
+    </button>
+  </div>
+  <div class="sidebar-bottom">
+    <div class="profile-mini"><span class="profile-avatar" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 21c.7-4 3-6 7-6s6.3 2 7 6"/></svg></span><span><strong id="sidebar-profile-name">Meu cultivo</strong><small id="sidebar-profile-email">Conta local</small></span></div>
+    <button class="settings-link" id="sidebar-settings" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19 13.5 1.2 1-.9 1.7-1.5-.4a7 7 0 0 1-1.5.9l-.3 1.6h-2l-.5-1.5a7 7 0 0 1-1.7-.4l-1.2 1-1.7-.9.4-1.5a7 7 0 0 1-.9-1.5l-1.6-.3v-2l1.5-.5a7 7 0 0 1 .4-1.7l-1-1.2.9-1.7 1.5.4a7 7 0 0 1 1.5-.9l.3-1.6h2l.5 1.5a7 7 0 0 1 1.7.4l1.2-1 1.7.9-.4 1.5a7 7 0 0 1 .9 1.5l1.6.3v2l-1.5.5a7 7 0 0 1-.4 1.7Z"/></svg>Configurações e conta</button>
+  </div>
+</aside>
+<button id="sidebar-mobile-toggle" class="sidebar-mobile-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+<div id="app-overlay" class="app-overlay" aria-hidden="true"></div>
+
+<section id="tela-login" class="tela auth-screen ativa">
+      <div class="auth-art">
+        <div class="auth-art-brand"><span class="auth-brand-symbol"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M37 7C20 8 10 16 11 28c1 7 7 11 13 8C36 31 39 17 37 7Z" fill="#477756"/><path d="M7 41c7-13 15-20 27-27" fill="none" stroke="#f3f0e5" stroke-width="2.4" stroke-linecap="round"/><path d="M16 28c-4-6-3-11 0-15 6 4 8 9 5 15" fill="#91ad83"/></svg></span><span>Minha Plantinha</span></div>
+        <div class="auth-art-heading"><span class="auth-kicker">CULTIVE NOVOS HÁBITOS</span><h2>Pequenos cuidados.<br><em>Grandes descobertas.</em></h2><p>Um espaço para acompanhar sua planta, aprender com a natureza e registrar cada etapa do cultivo.</p></div>
+        <svg class="auth-garden-art" viewBox="0 0 560 520" role="img" aria-label="Ilustração de uma planta em um vaso de cerâmica rodeada por folhas" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="auth-pot" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e99a70"/><stop offset=".55" stop-color="#c96f4d"/><stop offset="1" stop-color="#a84f39"/></linearGradient><linearGradient id="auth-leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8aa986"/><stop offset="1" stop-color="#3f7358"/></linearGradient></defs>
+                <circle cx="285" cy="235" r="176" fill="#e8eee4"/><circle cx="386" cy="142" r="45" fill="#f0d29a" opacity=".9"/><path d="M65 417C148 380 195 399 269 409s137-9 229-1v57H65Z" fill="#e9dfc9"/><path d="M97 372c-5-72 9-126 43-166-9 51-4 101 12 139" fill="#d3ddcf"/><path d="M112 299c-53-20-70-58-63-101 47 17 73 48 71 99M135 260c-5-52 16-89 54-112 7 47-10 83-54 112" fill="url(#auth-leaf)"/><path d="M444 388c-10-82 1-133 33-177-5 52 0 104 15 154" fill="#d3ddcf"/><path d="M464 323c-51-21-68-60-59-103 46 18 69 50 67 100M480 278c-1-49 21-83 56-103 6 43-12 77-56 103" fill="url(#auth-leaf)"/>
+                <path d="M275 324c-3-64-2-124 10-183" fill="none" stroke="#477756" stroke-width="9" stroke-linecap="round"/><path d="M282 279c-55-8-79-39-75-84 47 4 73 28 75 84Z" fill="url(#auth-leaf)"/><path d="M285 238c53-11 77-44 68-86-47 8-70 34-68 86Z" fill="#6c946a"/><path d="M286 191c-38-5-52-28-48-58 32 3 49 21 48 58Z" fill="#94b28b"/><path d="M290 167c34-10 47-31 40-59-30 6-43 25-40 59Z" fill="#507f5c"/><path d="M277 306c-28-37-47-47-76-49 10 37 36 55 76 49Z" fill="#a5bd91"/><path d="M287 291c35-40 58-46 87-40-16 35-45 49-87 40Z" fill="#477756"/>
+                <path d="M191 321c4 38 13 68 22 91 47 17 99 17 146 0 9-23 18-53 22-91Z" fill="url(#auth-pot)" stroke="#a95f45" stroke-width="2"/><ellipse cx="281" cy="322" rx="97" ry="22" fill="#ba6547"/><ellipse cx="281" cy="318" rx="83" ry="15" fill="#5a4637"/><path d="M184 319c13 9 42 15 97 15s84-6 97-15" fill="none" stroke="#f1b18e" stroke-width="5" stroke-linecap="round"/><path d="M214 359c5 19 9 32 15 42M349 354c-4 24-9 37-13 47" stroke="#f5bd9a" stroke-width="5" opacity=".55" stroke-linecap="round"/><ellipse cx="281" cy="414" rx="80" ry="9" fill="#9b4e39" opacity=".3"/>
+                <circle cx="145" cy="122" r="5" fill="#d59d59"/><circle cx="419" cy="250" r="4" fill="#d59d59"/><path d="M390 85l4 10 10 4-10 4-4 10-4-10-10-4 10-4Z" fill="#c7784f"/><path d="M157 227l3 7 7 3-7 3-3 7-3-7-7-3 7-3Z" fill="#7e9b80"/>
+              </svg>
+        <div class="auth-art-note"><span class="note-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V11M12 14C6 14 4 10 4 5c5 0 8 2 8 7M12 17c0-5 3-8 8-8 0 5-2 8-8 8Z"/></svg></span><span><strong>Um dia de cada vez</strong><small>Seu jardim cresce com a sua curiosidade.</small></span></div>
+      </div>
+      <div class="auth-content">
+        <div class="logo auth-logo"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M37 7C20 8 10 16 11 28c1 7 7 11 13 8C36 31 39 17 37 7Z" fill="#477756"/><path d="M7 41c7-13 15-20 27-27" fill="none" stroke="#f3f0e5" stroke-width="2.4" stroke-linecap="round"/><path d="M16 28c-4-6-3-11 0-15 6 4 8 9 5 15" fill="#91ad83"/></svg></div>
+        <span class="auth-kicker">BEM-VINDO DE VOLTA</span>
+        <h1>Entre no seu jardim</h1>
+        <p class="subtitulo">Continue de onde parou e acompanhe o desenvolvimento da sua plantinha.</p>
+        <div class="formulario">
+          <label for="login-email">E-mail</label>
+          <input type="email" id="login-email" placeholder="voce@exemplo.com" autocomplete="username">
+          <label for="login-senha">Senha</label>
+          <div class="password-field"><input type="password" id="login-senha" placeholder="Digite sua senha" autocomplete="current-password"><button class="password-toggle" type="button" data-toggle-password="login-senha" aria-label="Mostrar senha"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.3-6 9.5-6 9.5 6 9.5 6-3.3 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.5"/></svg></button></div>
+          <button class="botao" id="btn-login">Entrar no meu jardim <span aria-hidden="true">→</span></button>
+          <div class="auth-divider"><span>ou comece algo novo</span></div>
+          <button class="botao-secundario" id="btn-ir-cadastro">Criar uma conta</button>
+          <p id="erro-login" class="erro" role="status" aria-live="polite"></p>
+        </div>
+        
+      </div>
+    </section>
+<section id="tela-cadastro" class="tela auth-screen">
+      <div class="auth-art auth-art-cadastro">
+        <div class="auth-art-brand"><span class="auth-brand-symbol"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M37 7C20 8 10 16 11 28c1 7 7 11 13 8C36 31 39 17 37 7Z" fill="#477756"/><path d="M7 41c7-13 15-20 27-27" fill="none" stroke="#f3f0e5" stroke-width="2.4" stroke-linecap="round"/><path d="M16 28c-4-6-3-11 0-15 6 4 8 9 5 15" fill="#91ad83"/></svg></span><span>Minha Plantinha</span></div>
+        <div class="auth-art-heading"><span class="auth-kicker">SEU JARDIM COMEÇA AQUI</span><h2>Aprender também<br><em>é uma forma de cuidar.</em></h2><p>Crie seu espaço de cultivo e transforme pequenas observações em conhecimento.</p></div>
+        <svg class="auth-garden-art" viewBox="0 0 560 520" role="img" aria-label="Ilustração de uma planta em um vaso de cerâmica rodeada por folhas" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="auth-pot-cadastro" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e99a70"/><stop offset=".55" stop-color="#c96f4d"/><stop offset="1" stop-color="#a84f39"/></linearGradient><linearGradient id="auth-leaf-cadastro" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8aa986"/><stop offset="1" stop-color="#3f7358"/></linearGradient></defs>
+                <circle cx="285" cy="235" r="176" fill="#e8eee4"/><circle cx="386" cy="142" r="45" fill="#f0d29a" opacity=".9"/><path d="M65 417C148 380 195 399 269 409s137-9 229-1v57H65Z" fill="#e9dfc9"/><path d="M97 372c-5-72 9-126 43-166-9 51-4 101 12 139" fill="#d3ddcf"/><path d="M112 299c-53-20-70-58-63-101 47 17 73 48 71 99M135 260c-5-52 16-89 54-112 7 47-10 83-54 112" fill="url(#auth-leaf-cadastro)"/><path d="M444 388c-10-82 1-133 33-177-5 52 0 104 15 154" fill="#d3ddcf"/><path d="M464 323c-51-21-68-60-59-103 46 18 69 50 67 100M480 278c-1-49 21-83 56-103 6 43-12 77-56 103" fill="url(#auth-leaf-cadastro)"/>
+                <path d="M275 324c-3-64-2-124 10-183" fill="none" stroke="#477756" stroke-width="9" stroke-linecap="round"/><path d="M282 279c-55-8-79-39-75-84 47 4 73 28 75 84Z" fill="url(#auth-leaf-cadastro)"/><path d="M285 238c53-11 77-44 68-86-47 8-70 34-68 86Z" fill="#6c946a"/><path d="M286 191c-38-5-52-28-48-58 32 3 49 21 48 58Z" fill="#94b28b"/><path d="M290 167c34-10 47-31 40-59-30 6-43 25-40 59Z" fill="#507f5c"/><path d="M277 306c-28-37-47-47-76-49 10 37 36 55 76 49Z" fill="#a5bd91"/><path d="M287 291c35-40 58-46 87-40-16 35-45 49-87 40Z" fill="#477756"/>
+                <path d="M191 321c4 38 13 68 22 91 47 17 99 17 146 0 9-23 18-53 22-91Z" fill="url(#auth-pot-cadastro)" stroke="#a95f45" stroke-width="2"/><ellipse cx="281" cy="322" rx="97" ry="22" fill="#ba6547"/><ellipse cx="281" cy="318" rx="83" ry="15" fill="#5a4637"/><path d="M184 319c13 9 42 15 97 15s84-6 97-15" fill="none" stroke="#f1b18e" stroke-width="5" stroke-linecap="round"/><path d="M214 359c5 19 9 32 15 42M349 354c-4 24-9 37-13 47" stroke="#f5bd9a" stroke-width="5" opacity=".55" stroke-linecap="round"/><ellipse cx="281" cy="414" rx="80" ry="9" fill="#9b4e39" opacity=".3"/>
+                <circle cx="145" cy="122" r="5" fill="#d59d59"/><circle cx="419" cy="250" r="4" fill="#d59d59"/><path d="M390 85l4 10 10 4-10 4-4 10-4-10-10-4 10-4Z" fill="#c7784f"/><path d="M157 227l3 7 7 3-7 3-3 7-3-7-7-3 7-3Z" fill="#7e9b80"/>
+              </svg>
+        <div class="auth-art-note"><span class="note-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V11M12 14C6 14 4 10 4 5c5 0 8 2 8 7M12 17c0-5 3-8 8-8 0 5-2 8-8 8Z"/></svg></span><span><strong>Comece com uma semente</strong><small>Registre, observe e descubra algo novo.</small></span></div>
+      </div>
+      <div class="auth-content">
+        <div class="logo auth-logo"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M37 7C20 8 10 16 11 28c1 7 7 11 13 8C36 31 39 17 37 7Z" fill="#477756"/><path d="M7 41c7-13 15-20 27-27" fill="none" stroke="#f3f0e5" stroke-width="2.4" stroke-linecap="round"/><path d="M16 28c-4-6-3-11 0-15 6 4 8 9 5 15" fill="#91ad83"/></svg></div>
+        <span class="auth-kicker">CRIE SEU ESPAÇO</span>
+        <h1>Comece seu jardim</h1>
+        <p class="subtitulo">Escolha suas credenciais para acompanhar suas descobertas.</p>
+        <div class="formulario">
+          <label for="cadastro-email">E-mail</label>
+          <input type="email" id="cadastro-email" placeholder="voce@exemplo.com" autocomplete="email">
+          <label for="cadastro-senha">Senha</label>
+          <div class="password-field"><input type="password" id="cadastro-senha" placeholder="Crie uma senha (mín. 6 caracteres)" autocomplete="new-password"><button class="password-toggle" type="button" data-toggle-password="cadastro-senha" aria-label="Mostrar senha"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.3-6 9.5-6 9.5 6 9.5 6-3.3 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.5"/></svg></button></div>
+          <label for="cadastro-nome">Nome de exibição (nick)</label>
+          <input type="text" id="cadastro-nome" placeholder="Como você quer aparecer no app?" autocomplete="name" maxlength="50">
+          <label for="cadastro-nascimento">Data de nascimento</label>
+          <input type="date" id="cadastro-nascimento" autocomplete="bday">
+          <label id="responsavel-wrap" class="check-field escondido"><input type="checkbox" id="cadastro-responsavel"><span>Declaro que utilizo o Minha Plantinha com acompanhamento de um adulto responsável.</span></label>
+          <button class="botao" id="btn-cadastrar" type="button">Criar minha conta <span aria-hidden="true">→</span></button>
+          <button class="botao-secundario" id="btn-voltar-login" type="button">Já tenho uma conta</button>
+          <p id="erro-cadastro" class="erro" role="status" aria-live="polite"></p>
+        </div>
+        
+      </div>
+    </section>
+
+<section id="tela-inicial" class="tela">
+  <header class="page-heading hero-heading">
+    <div><p class="eyebrow">COMECE PELO ESSENCIAL</p><h2>Escolha o seu cultivo</h2><p class="subtitulo">Por enquanto, o feijão é a única plantinha disponível para acompanhar de perto.</p></div>
+    <div class="heading-badge"><svg viewBox="0 0 24 24"><path d="M12 21V9M12 13C7 13 5 10 5 6c4 0 7 2 7 7M12 16c0-4 3-7 7-7 0 4-2 7-7 7Z"/></svg><span>Uma jornada por etapas</span></div>
+  </header>
+  <div class="selection-layout">
+    <button class="plant-choice" type="button" data-select-seed="Feijão" aria-pressed="false">
+      <div class="choice-photo bean-photo"></div>
+      <div class="choice-body"><span class="choice-label">Cultivo disponível</span><h3>Feijão</h3><p>Uma opção simples para observar germinação, crescimento, luz, água e registros do dia a dia.</p><div class="choice-meta"><span>Ilustração por etapas</span><span>Acompanhamento real</span></div></div>
+      <span class="choice-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg></span>
+    </button>
+    <div class="cultivo-painel">
+      <div><span class="eyebrow">RECIPIENTE</span><h3>Onde sua plantinha vai ficar?</h3><p class="muted">Escolha uma opção que você já tenha disponível.</p></div>
+      <div class="segmented-choice" role="group" aria-label="Escolha do recipiente">
+        <label><input type="radio" name="pote" value="Pote de Danone"><span><strong>Pote reutilizado</strong><small>Pote de Danone</small></span></label>
+        <label><input type="radio" name="pote" value="Vaso"><span><strong>Vaso</strong><small>Vaso para cultivo</small></span></label>
+      </div>
+      <p id="erro-inicial" class="erro" role="status" aria-live="polite"></p>
+      <div class="flow-actions"><button class="botao" id="btn-continuar-inicial" type="button">Continuar</button><button class="botao-secundario" id="btn-cancelar-novo" type="button">Cancelar</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="tela-nome" class="tela">
+  <header class="page-heading"><p class="eyebrow">UM NOME DÁ PERSONALIDADE</p><h2>Como você quer chamar sua plantinha?</h2><p class="subtitulo">Escolha um nome para deixar o acompanhamento mais seu.</p></header>
+  <div class="form-shell narrow"><label for="nome-planta">Nome da plantinha</label><input type="text" id="nome-planta" placeholder="Ex.: Feijãozinho" maxlength="30"><p id="erro-nome" class="erro"></p><div class="flow-actions"><button class="botao" id="btn-continuar-nome" type="button">Continuar</button><button class="botao-secundario" id="btn-voltar-escolha" type="button">Voltar</button></div></div>
+</section>
+
+<section id="tela-lembretes" class="tela">
+  <header class="page-heading"><p class="eyebrow">ANTES DE COMEÇAR</p><h2>Entenda a rotina</h2><p class="subtitulo">O aplicativo diferencia cuidados registrados de dias decorridos para que a evolução não dependa de cliques repetidos.</p></header>
+  <div class="care-intro-grid">
+    <article class="care-intro-card"><span class="care-icon"><svg viewBox="0 0 24 24"><path d="M12 3C9.5 7 6 10.2 6 14a6 6 0 0 0 12 0c0-3.8-3.5-7-6-11Z"/><path d="M9.5 15.5a2.7 2.7 0 0 0 2.5 2"/></svg></span><div><strong>Regar a planta</strong><p>Registre o cuidado quando realmente acontecer.</p></div></article>
+    <article class="care-intro-card"><span class="care-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></span><div><strong>Luz do sol</strong><p>Observe o local de cultivo e registre a exposição à luz.</p></div></article>
+  </div>
+  
+  <section class="panel lembrete-metodo" id="lembrete-metodo" hidden></section>
+  <div class="flow-actions"><button class="botao" id="btn-finalizar" type="button">Começar a cuidar</button><button class="botao-secundario" id="btn-voltar-nome" type="button">Voltar</button></div>
+</section>
+
+<section id="tela-planta" class="tela">
+  <header class="page-heading hero-heading plant-heading"><div><p class="eyebrow" id="saudacao-kicker">SUA JORNADA DE CULTIVO</p><h2 id="nome-planta-final" class="plant-name-interactive" tabindex="0" role="button" aria-label="Interagir com o nome da plantinha">Minha plantinha</h2><p class="subtitulo" id="mensagem-contextual">Sua jornada de cultivo começa aqui.</p></div><div class="plant-stage-badge"><span id="plant-stage-label">Semente</span><small id="plant-stage-day">Etapa 1</small></div></header>
+  <div id="plant-switcher" class="plant-switcher" aria-label="Minhas plantinhas"></div>
+  <div class="plant-overview">
+    <section class="plant-visual panel-accent"><div class="visual-label">ILUSTRAÇÃO EDUCATIVA</div><div id="imagem-planta" class="imagem-planta"></div><div class="plant-caption"><span id="tipo-semente-final">Feijão</span><span id="tipo-pote-final">Recipiente</span></div></section>
+    <section class="photo-card"><div class="visual-label">PLANTA REAL</div><div id="foto-planta-preview" class="photo-placeholder"><div class="photo-placeholder-icon"><svg viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h3l1.4 2h6.6A2.5 2.5 0 0 1 20 8.5v9A2.5 2.5 0 0 1 17.5 20h-11A2.5 2.5 0 0 1 4 17.5Z"/><circle cx="12" cy="13" r="3.2"/></svg></div><strong>Adicione a primeira fotografia</strong><small>Registre como sua planta real está hoje.</small></div><div class="photo-actions"><button class="botao-secundario small" id="btn-foto-adicionar" type="button">Adicionar foto</button><button class="botao small" id="btn-foto-salvar" type="button" hidden>Salvar foto</button><button class="ghost-action" id="btn-foto-cancelar" type="button" hidden>Cancelar</button><button class="ghost-action" id="btn-foto-ampliar" type="button" hidden>Ampliar</button></div><input id="foto-input" type="file" accept="image/*" hidden></section>
+  </div>
+  <section class="daily-care panel"><div class="section-heading"><div><p class="eyebrow">HOJE</p><h3>Cuidados do dia</h3></div><span id="mensagem-dia" class="status-pill">Aguardando registros</span></div><div class="care-list"><div class="cuidado" id="cuidado-regar"><div class="cuidado-info"><span class="icone-cuidado"><svg viewBox="0 0 24 24"><path d="M12 3C9.5 7 6 10.2 6 14a6 6 0 0 0 12 0c0-3.8-3.5-7-6-11Z"/><path d="M9.5 15.5a2.7 2.7 0 0 0 2.5 2"/></svg></span><div><strong>Água</strong><small id="info-agua">Verifique a umidade antes de regar. Só confirme quando a rega realmente acontecer.</small></div></div><div class="cuidado-acoes"><button class="botao-cuidado" id="btn-regar" type="button">Confirmar rega</button></div></div><div class="cuidado" id="cuidado-sol"><div class="cuidado-info"><span class="icone-cuidado"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></span><div><strong>Luz</strong><small id="info-luz">Verifique o local de cultivo. Só confirme se a luz realmente estiver adequada.</small></div></div><div class="cuidado-acoes"><button class="botao-cuidado" id="btn-sol" type="button">Confirmar luz adequada</button></div></div></div></section>
+  <div class="overview-stats"><div class="stat-card"><span>Dias consecutivos</span><strong id="dias-consecutivos">0</strong><small>dias registrados com os dois cuidados</small></div><div class="stat-card"><span>Conquistas</span><strong><span id="contagem-conquistas">0</span></strong><small>conquistas desbloqueadas</small></div><div class="stat-card"><span>Próxima etapa</span><strong id="proxima-etapa">Dia 1</strong><small id="proxima-etapa-texto">Comece o primeiro registro</small></div></div>
+  <section id="admin-tempo-panel" class="admin-time-panel escondido" aria-label="Controles administrativos"><div><p class="eyebrow">ADMINISTRADOR</p><h3>Avanço de desenvolvimento</h3><p>Use este controle apenas para visualizar as etapas da planta sem esperar os dias reais do cultivo.</p></div><button class="botao" id="btn-avancar-tempo" type="button">Avançar no tempo</button></section>
+  <div class="quick-actions"><button class="botao" id="btn-ver-progresso" type="button">Ver progresso</button><button class="botao-secundario" id="btn-ir-diario-planta" type="button">Abrir diário</button><button class="botao-secundario" id="btn-ir-fotos-planta" type="button">Fotografias e árvore</button><button class="botao-secundario" id="btn-ir-tutorial-planta" type="button">Passo a passo do plantio</button><button class="botao-secundario" id="btn-ir-calendario-planta" type="button">Calendário de cuidados</button></div>
+  <section class="tip-panel"><div><p class="eyebrow">DICA DO DIA</p><h3>Observe antes de agir</h3><p class="dica-do-dia-texto"></p></div><span class="tip-mark"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8.5 14.5a6 6 0 1 1 7 0c-.8.7-1.3 1.6-1.5 2.5h-3c-.2-.9-.7-1.8-1.5-2.5Z"/></svg></span></section>
+</section>
+
+<section id="tela-minha-plantinha" class="tela">
+  <header class="page-heading"><p class="eyebrow">MEU CULTIVO</p><h2>Minhas plantinhas</h2><p class="subtitulo">Cada plantinha tem nome, recipiente, cuidados, fotos e diário próprios. Você pode cultivar até quatro.</p></header>
+  <div id="plantas-lista" class="plantas-grid"></div>
+  <p id="plantas-limite" class="muted plantas-limite"></p>
+  <div class="plant-detail-grid"><div class="panel"><p class="eyebrow">IDENTIDADE DO CULTIVO</p><div class="detail-row"><span>Nome</span><strong id="detail-nome">—</strong></div><div class="detail-row"><span>Espécie</span><strong>Feijão</strong></div><div class="detail-row"><span>Recipiente</span><strong id="detail-pote">—</strong></div><div class="detail-row"><span>Início</span><strong id="detail-inicio">—</strong></div></div><div class="panel"><p class="eyebrow">REGISTROS</p><div class="detail-row"><span>Dias de cultivo</span><strong id="detail-dias">0</strong></div><div class="detail-row"><span>Conquistas</span><strong id="detail-conquistas">0/10</strong></div><div class="detail-row"><span>Fotografia real</span><strong id="detail-foto">Nenhuma</strong></div><button class="botao-secundario" id="btn-config-planta" type="button">Personalizar planta</button></div></div>
+  <div class="panel wide-note"><p class="eyebrow">IMPORTANTE</p><p>A ilustração do aplicativo representa uma etapa educativa. A fotografia, quando adicionada, representa apenas a planta real do usuário.</p></div>
+</section>
+
+<section id="tela-progresso" class="tela">
+  <header class="page-heading"><p class="eyebrow">JORNADA DE CULTIVO</p><h2>Seu progresso</h2><p class="subtitulo">A evolução visual acompanha os dias consecutivos registrados com os dois cuidados.</p></header>
+  <div class="progress-hero panel"><div class="progress-visual" id="imagem-progresso"></div><div><p class="eyebrow">PLANTA ATUAL</p><h3 id="nome-progresso">Minha plantinha</h3><div class="progress-number"><strong id="dias-progresso">0</strong><span>dias consecutivos</span></div><p id="texto-progresso">Comece hoje a cuidar da sua plantinha.</p></div></div>
+  <div class="progress-track"><div class="progress-track-label"><span>Etapas do cultivo</span><strong id="texto-porcentagem">0%</strong></div><div class="barra-progresso"><div id="barra-progresso-preenchida" class="barra-progresso-preenchida"></div></div></div>
+  <div class="etapas"><div class="etapa" id="etapa-1"><span class="etapa-icone"><svg viewBox="0 0 48 48"><ellipse cx="24" cy="27" rx="9" ry="5.5" transform="rotate(-25 24 27)"/><path d="M19 28q6-8 12-5"/><path d="M10 36h28"/></svg></span><div><strong>Dia 1 — germinação</strong><small id="status-etapa-1">Próxima etapa</small></div></div><div class="etapa" id="etapa-3"><span class="etapa-icone"><svg viewBox="0 0 48 48"><path d="M24 36V23"/><path d="M24 28c-8 0-12-5-11-12 8 1 12 5 11 12Z"/><path d="M24 24c0-7 5-11 12-10 0 7-4 11-12 10Z"/></svg></span><div><strong>Dia 3 — começou a crescer</strong><small id="status-etapa-3">Bloqueada</small></div></div><div class="etapa" id="etapa-5"><span class="etapa-icone"><svg viewBox="0 0 48 48"><path d="M24 34V17"/><path d="M24 26c-9 0-13-6-12-14 8 1 12 5 12 14Z"/><path d="M24 23c1-8 6-12 14-11 0 8-5 12-14 11Z"/></svg></span><div><strong>Dia 5 — planta jovem</strong><small id="status-etapa-5">Bloqueada</small></div></div><div class="etapa" id="etapa-7"><span class="etapa-icone"><svg viewBox="0 0 48 48"><path d="M24 31V10"/><path d="M24 23C13 23 9 16 10 8c9 1 14 7 14 15Z"/><path d="M24 18c1-8 7-13 15-12 0 9-6 13-15 12Z"/></svg></span><div><strong>Dia 7 — planta forte</strong><small id="status-etapa-7">Bloqueada</small></div></div><div class="etapa" id="etapa-10"><span class="etapa-icone"><svg viewBox="0 0 48 48"><path d="M24 31V8"/><path d="M24 22C12 22 8 14 10 5c9 2 14 8 14 17Z"/><path d="M24 16c1-9 7-13 15-12 0 9-6 13-15 12Z"/></svg></span><div><strong>Dia 10 — grande crescimento</strong><small id="status-etapa-10">Bloqueada</small></div></div></div>
+  <button class="botao" data-nav-screen="tela-planta" type="button">Voltar para minha plantinha</button>
+</section>
+
+<section id="tela-conquistas" class="tela">
+  <header class="page-heading"><p class="eyebrow">MARCOS DO CULTIVO</p><h2>Minhas conquistas</h2><p class="subtitulo">Acompanhe o que você já desbloqueou, o que falta e as conquistas que escondem pequenas surpresas.</p></header>
+  <div id="admin-conquistas-aviso" class="notice admin-notice escondido" role="note"></div>
+  <section class="achievement-summary panel">
+    <div class="achievement-summary-main">
+      <div><p class="eyebrow">COLEÇÃO</p><div class="achievement-counter"><strong id="conquistas-desbloqueadas">0</strong><span>/<span id="conquistas-total">0</span> conquistas</span></div><p id="conquistas-resumo-texto" class="muted">Comece a cuidar para construir sua coleção.</p></div>
+      <div class="achievement-progress-ring"><div><strong id="conquistas-percentual">0%</strong><span>conclusão</span></div></div>
+    </div>
+    <div class="achievement-progress-line"><div class="achievement-progress-line-top"><span>Progresso geral</span><strong id="conquistas-progresso-label">0%</strong></div><div class="barra-progresso"><div id="barra-conquistas" class="barra-progresso-preenchida"></div></div></div>
+    <div class="achievement-stat-grid">
+      <div><span>Desbloqueadas</span><strong id="stat-conquistas-ok">0</strong></div>
+      <div><span>Faltam</span><strong id="stat-conquistas-faltam">0</strong></div>
+      <div><span>Ocultas descobertas</span><strong id="stat-conquistas-secretas">0</strong></div>
+      <div><span>Atividades registradas</span><strong id="stat-registros-cuidado">0</strong></div>
+    </div>
+  </section>
+  <section class="achievement-section">
+    <div class="section-heading achievement-section-heading"><div><p class="eyebrow">COLEÇÃO</p><h3>Conquistadas</h3></div><span id="count-conquistadas" class="muted-label">0</span></div>
+    <div id="lista-conquistadas" class="achievement-grid"></div>
+  </section>
+  <section class="achievement-section">
+    <div class="section-heading achievement-section-heading"><div><p class="eyebrow">PRÓXIMOS PASSOS</p><h3>Ainda não conquistadas</h3></div><span id="count-pendentes" class="muted-label">0</span></div>
+    <div id="lista-pendentes" class="achievement-grid"></div>
+  </section>
+  <section class="achievement-section">
+    <div class="section-heading achievement-section-heading"><div><p class="eyebrow">SEGREDOS</p><h3>Conquistas ocultas</h3></div><span id="count-secretas" class="muted-label">0</span></div>
+    <div id="lista-secretas" class="achievement-grid"></div>
+  </section>
+  <section class="achievement-section" id="secao-breve" hidden>
+    <div class="section-heading achievement-section-heading"><div><p class="eyebrow">EM BREVE</p><h3>Aguardando novos conteúdos</h3></div><span id="count-breve" class="muted-label">0</span></div>
+    <div id="lista-breve" class="achievement-grid"></div>
+  </section>
+  <div class="quick-actions achievement-back-actions"><button class="botao" data-nav-screen="tela-planta" type="button">Voltar para minha plantinha</button><button class="botao-secundario" data-nav-screen="tela-registros" type="button">Ver histórico</button></div>
+</section>
+
+<section id="tela-guia" class="tela">
+  <header class="page-heading"><p class="eyebrow">APRENDER FAZ PARTE DO CULTIVO</p><h2>Conteúdos educativos</h2><p class="subtitulo">Descubra como as plantas vivem e como cuidar delas.</p></header>
+  <section class="tip-panel"><div><p class="eyebrow">DICA DO DIA</p><p class="dica-do-dia-texto"></p></div><span class="tip-mark"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8.5 14.5a6 6 0 1 1 7 0c-.8.7-1.3 1.6-1.5 2.5h-3c-.2-.9-.7-1.8-1.5-2.5Z"/></svg></span></section>
+  <button class="feature-link" id="btn-ir-tutorial" type="button"><span class="feature-icon"><svg viewBox="0 0 24 24"><path d="M5 20h14M7 20V9l5-5 5 5v11M10 20v-5h4v5"/></svg></span><span><strong>Passo a passo do plantio</strong><small>Pote de Danone com algodão ou vaso com terra.</small></span><span>→</span></button>
+  <button class="feature-link" id="btn-ir-jornal"><span class="feature-icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H7a2 2 0 0 1-2-2Z"/><path d="M8 8h7M8 12h8M8 16h5"/></svg></span><span><strong>Jornal das Plantas</strong><small>Épocas, espécies e contexto ambiental.</small></span><span>→</span></button>
+  <div class="content-grid" id="lista-guia"></div>
+</section>
+
+<section id="tela-topico" class="tela">
+  <header class="page-heading"><p class="eyebrow">CONTEÚDO EDUCATIVO</p><h2 id="topico-titulo">Assunto</h2><p id="topico-resumo" class="subtitulo"></p></header>
+  <div id="topico-secoes" class="content-sections"></div>
+  <div class="tip-panel" id="topico-curiosidade"></div>
+  <button class="botao" id="btn-voltar-topico" type="button">Voltar para os assuntos</button>
+</section>
+
+<section id="tela-jornal" class="tela">
+  <header class="page-heading journal-heading"><div><p class="eyebrow">JORNAL DAS PLANTAS</p><h2>O que pode fazer sentido nesta época?</h2><p class="subtitulo">Explore as espécies e compare as orientações com sua região. As recomendações variam conforme clima e local.</p></div><div class="journal-source-badge">Conteúdo local + fontes</div></header>
+  <div class="month-switcher"><button id="jornal-mes-anterior" class="icon-button" type="button" aria-label="Mês anterior"><svg viewBox="0 0 24 24"><path d="m14 6-6 6 6 6"/></svg></button><div><span class="eyebrow">MÊS</span><strong id="jornal-mes-nome">Janeiro</strong></div><button id="jornal-mes-proximo" class="icon-button" type="button" aria-label="Próximo mês"><svg viewBox="0 0 24 24"><path d="m10 6 6 6-6 6"/></svg></button></div>
+  <div id="jornal-lista" class="journal-grid"></div>
+  <div class="notice">As fotos desta área são referências editoriais. As fontes e licenças ficam indicadas em cada publicação. O site não atualiza essas recomendações automaticamente.</div>
+</section>
+
+<section id="tela-calendario" class="tela">
+  <header class="page-heading"><p class="eyebrow">CALENDÁRIO DE CUIDADOS</p><h2>Organize o cultivo</h2><p class="subtitulo">Tarefas práticas para cada fase do feijão, a partir do dia do plantio e do recipiente que você escolheu.</p></header>
+  <section id="calendar-resumo" class="panel cal-resumo" aria-live="polite"></section>
+  <div class="calendar-toolbar"><button id="cal-mes-anterior" class="icon-button" type="button" aria-label="Mês anterior"><svg viewBox="0 0 24 24"><path d="m14 6-6 6 6 6"/></svg></button><div><span class="eyebrow">MÊS DO CALENDÁRIO</span><strong id="cal-mes-nome">Janeiro de 2026</strong></div><button id="cal-mes-proximo" class="icon-button" type="button" aria-label="Próximo mês"><svg viewBox="0 0 24 24"><path d="m10 6 6 6-6 6"/></svg></button></div>
+  <div class="calendar-layout"><div class="calendar-card"><div class="calendar-weekdays"><span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span></div><div id="calendar-grid" class="calendar-grid"></div><p class="cal-legenda"><span class="dot pend"></span> tarefas pendentes <span class="dot ok"></span> tudo concluído</p></div><aside class="calendar-detail panel" id="calendar-detail"><p class="eyebrow">DETALHES DA DATA</p><h3>Selecione um dia</h3><p class="muted">As tarefas da data escolhida aparecerão aqui.</p></aside></div>
+</section>
+
+<section id="tela-tutorial" class="tela">
+  <header class="page-heading"><p class="eyebrow">PASSO A PASSO DO PLANTIO</p><h2 id="tutorial-titulo">Como plantar o feijão</h2><p class="subtitulo" id="tutorial-resumo"></p></header>
+  <div class="tutorial-switch" role="group" aria-label="Escolha o método de plantio"><button type="button" class="tutorial-tab" data-tutorial="danone" aria-pressed="false">Pote de Danone com algodão</button><button type="button" class="tutorial-tab" data-tutorial="vaso" aria-pressed="false">Vaso com terra</button></div>
+  <p id="tutorial-seu-metodo" class="muted tutorial-seu-metodo"></p>
+  <div id="tutorial-passos" class="tutorial-steps"></div>
+  <div id="tutorial-aviso" class="notice tutorial-aviso" role="note"></div>
+  <div id="tutorial-diferenca" class="panel tutorial-diferenca"></div>
+  <div class="flow-actions"><button class="botao" id="btn-tutorial-calendario" type="button">Ver calendário de cuidados</button><button class="botao-secundario" id="btn-tutorial-voltar" type="button">Voltar</button></div>
+</section>
+
+<section id="tela-diario" class="tela">
+  <header class="page-heading"><p class="eyebrow">SEU CULTIVO, DIA APÓS DIA</p><h2>Diário de cultivo</h2><p class="subtitulo">Escreva o que você observou na sua planta. Os eventos de cuidado ficam no Histórico.</p></header>
+  <form id="form-diario" class="panel diary-form"><div class="form-grid form-grid-3"><div><label for="diario-planta">Plantinha</label><select id="diario-planta" required></select></div><div><label for="diario-tipo">Tipo de registro</label><select id="diario-tipo" required><option value="Observação">Observação</option><option value="Rega">Verificação de água</option><option value="Luz">Exposição à luz</option><option value="Adubação">Adubação</option><option value="Poda">Poda</option><option value="Troca de vaso">Troca de vaso</option></select></div><div><label for="diario-data">Data</label><input id="diario-data" type="date" required></div></div><label for="diario-nota">O que aconteceu com a planta?</label><textarea id="diario-nota" rows="4" maxlength="500" placeholder="Ex.: apareceu a primeira folha. (opcional)"></textarea><button class="botao" type="submit">Salvar registro</button></form>
+  <div class="section-heading"><div><p class="eyebrow">MINHAS ANOTAÇÕES</p><h3>Anotações do diário</h3></div><div class="section-heading-actions"><span id="diario-contagem" class="muted-label">0 anotações</span><button class="ghost-action" type="button" data-nav-screen="tela-registros">Ver Histórico completo</button></div></div>
+  <div class="diary-reader-layout"><div id="diario-lista" class="timeline"></div><aside id="diario-leitor" class="panel diary-reader" hidden><div class="diary-reader-top"><div><p class="eyebrow">LEITURA</p><span id="diario-leitor-data" class="muted-label">—</span></div><button class="ghost-action" id="btn-fechar-diario-leitor" type="button">Fechar</button></div><div class="diary-reader-body"><span id="diario-leitor-tipo" class="diary-reader-type">Registro</span><h3 id="diario-leitor-titulo">Selecione uma anotação</h3><p id="diario-leitor-planta" class="muted"></p><p id="diario-leitor-texto">O conteúdo completo da anotação aparecerá aqui.</p></div></aside></div>
+</section>
+
+<section id="tela-registros" class="tela">
+  <header class="page-heading"><p class="eyebrow">HISTÓRICO DE ATIVIDADES</p><h2>Histórico</h2><p class="subtitulo">Linha do tempo dos eventos reais do cultivo: cuidados, anotações, fotografias e mudanças de estágio.</p></header>
+  <section class="records-summary panel"><div><p class="eyebrow">ATIVIDADES REGISTRADAS</p><strong id="registros-total">0</strong><span> registros</span></div><div><p class="eyebrow">HOJE</p><strong id="registros-hoje">0</strong><span> atividades</span></div><button class="botao-secundario" id="btn-limpar-registros" type="button">Limpar histórico</button></section>
+  <div class="panel historico-filtros"><div><label for="hist-planta">Plantinha</label><select id="hist-planta"></select></div><div><label for="hist-tipo">Tipo de evento</label><select id="hist-tipo"><option value="">Todos os tipos</option><option value="Rega">Rega</option><option value="Sol">Verificação de luz</option><option value="Foto">Fotografia</option><option value="Estágio">Mudança de estágio</option><option value="Anotação">Anotações</option></select></div></div>
+  <section class="panel records-panel"><div class="section-heading"><div><p class="eyebrow">LINHA DO TEMPO</p><h3>Atividades realizadas</h3></div><span id="registros-status" class="muted-label">0 registros</span></div><div id="lista-registros" class="records-list"></div></section>
+</section>
+
+<section id="tela-fotos" class="tela">
+  <header class="page-heading"><p class="eyebrow">FOTOGRAFIAS</p><h2>Registro fotográfico</h2><p class="subtitulo">Fotografe a planta real ao longo dos dias, compare os registros e acompanhe a trajetória na árvore de crescimento.</p></header>
+  <div id="fotos-seletor" class="plant-switcher" aria-label="Escolha a plantinha"></div>
+  <section class="panel foto-novo"><div id="foto-novo-preview" class="foto-novo-preview"><div class="gallery-empty">Escolha uma fotografia para ver a prévia.</div></div><div class="foto-novo-form"><p class="eyebrow">NOVO REGISTRO</p><h3>Adicionar fotografia</h3><p id="foto-novo-planta" class="muted"></p><label for="foto-legenda">Legenda (opcional)</label><input id="foto-legenda" type="text" maxlength="80" placeholder="Ex.: primeira folha abriu"><div class="photo-actions"><button class="botao" id="btn-foto-adicionar-2" type="button">Escolher fotografia</button><button class="botao" id="btn-foto-salvar-2" type="button" hidden>Salvar na trajetória</button><button class="ghost-action" id="btn-foto-cancelar-2" type="button" hidden>Cancelar</button></div></div></section>
+  <section class="panel"><div class="section-heading"><div><p class="eyebrow">ÁRVORE DE CRESCIMENTO</p><h3>Trajetória da plantinha</h3></div><span id="arvore-contagem" class="muted-label"></span></div><div id="arvore" class="arvore"></div><div id="arvore-detalhe" class="arvore-detalhe" hidden></div></section>
+  <section class="panel"><div class="section-heading"><div><p class="eyebrow">HISTÓRICO DE FOTOGRAFIAS</p><h3>Registros reais</h3></div><button class="ghost-action" id="foto-ordem" type="button">Mais recentes primeiro</button></div><div id="fotos-grid" class="fotos-grid"></div></section>
+  
+</section>
+
+<section id="tela-configuracoes" class="tela">
+  <header class="page-heading"><p class="eyebrow">PERSONALIZAÇÃO</p><h2>Configurações</h2><p class="subtitulo">Ajuste sua conta, sua planta e a experiência de uso sem alterar os registros históricos por engano.</p></header>
+  <div class="settings-layout"><nav class="settings-tabs" aria-label="Categorias de configurações"><button class="settings-tab active" type="button" data-settings-tab="conta">Minha conta</button><button class="settings-tab" type="button" data-settings-tab="planta">Minha planta</button><button class="settings-tab" type="button" data-settings-tab="preferencias">Preferências</button><button class="settings-tab" type="button" data-settings-tab="sobre">Descrição do app</button><button class="settings-tab admin-tab escondido" type="button" data-settings-tab="admin" id="settings-admin-tab">Administração</button></nav><div class="settings-panels">
+    <section class="settings-panel active" data-settings-panel="conta"><p class="eyebrow">MINHA CONTA</p><h3>Dados do perfil</h3><div id="perfil-foto-bloco" class="perfil-foto escondido"><span id="perfil-foto-preview" class="perfil-foto-img" aria-hidden="true"></span><div><strong>Fotografia de perfil</strong><small>Aparece no seu perfil. Disponível para quem tem 18 anos completos ou mais.</small><div class="settings-actions"><button class="botao-secundario small" id="btn-perfil-escolher" type="button">Escolher foto</button><button class="botao small" id="btn-perfil-confirmar" type="button" hidden>Confirmar foto</button><button class="ghost-action" id="btn-perfil-cancelar" type="button" hidden>Cancelar</button><button class="ghost-action danger" id="btn-perfil-remover" type="button" hidden>Remover</button></div><input id="perfil-foto-input" type="file" accept="image/jpeg,image/png,image/webp" hidden><p id="perfil-foto-msg" class="form-message" aria-live="polite"></p></div></div>
+    <div class="form-grid"><div><label for="config-nome">Nome de exibição (nick)</label><input type="text" id="config-nome" maxlength="50"></div><div><label for="config-nascimento">Data de nascimento</label><input type="date" id="config-nascimento"></div><div><label for="config-email">E-mail</label><input type="email" id="config-email"></div><div><label for="config-senha">Nova senha</label><input type="password" id="config-senha" placeholder="Deixe em branco para manter"></div></div><p id="config-conta-msg" class="form-message" aria-live="polite"></p><div class="settings-actions"><button class="botao" id="btn-salvar-conta" type="button">Salvar conta</button><button class="ghost-action" id="btn-sair" type="button">Encerrar sessão</button></div><div class="notice"></div></section>
+    <section class="settings-panel" data-settings-panel="planta"><p class="eyebrow">MINHA PLANTA</p><h3>Informações do cultivo</h3><div class="form-grid"><div><label for="config-planta-nome">Nome da plantinha</label><input type="text" id="config-planta-nome" maxlength="30"></div><div><label for="config-pote">Recipiente</label><select id="config-pote"><option value="Pote de Danone">Pote de Danone</option><option value="Vaso">Vaso</option></select></div><div class="full"><label for="config-descricao">Descrição pessoal</label><textarea id="config-descricao" rows="4" maxlength="300" placeholder="Escreva uma observação sobre o seu cultivo."></textarea></div><div><label for="config-data-inicio">Data de início</label><input type="date" id="config-data-inicio"></div></div><p id="config-planta-msg" class="form-message" aria-live="polite"></p><div class="settings-actions"><button class="botao" id="btn-salvar-planta" type="button">Salvar alterações</button><button class="botao-secundario" id="btn-config-fotos" type="button">Gerenciar fotografias</button></div><div class="notice">A data de início é uma informação do cultivo. Nesta versão, ela não altera artificialmente os dias de cuidados já registrados. O histórico de cuidados e conquistas não será apagado.</div></section>
+    <section class="settings-panel" data-settings-panel="preferencias"><p class="eyebrow">PREFERÊNCIAS</p><h3>Como você prefere usar o app?</h3><label class="toggle-row"><span><strong>Reduzir animações</strong><small>Evita transições e movimentos de crescimento mais intensos.</small></span><input id="pref-reduzir-animacoes" type="checkbox"><span class="toggle-track"></span></label><label class="toggle-row"><span><strong>Mostrar dicas auxiliares</strong><small>Exibe textos de apoio nas telas principais.</small></span><input id="pref-mostrar-dicas" type="checkbox"><span class="toggle-track"></span></label><div class="backup-box"><strong>Backup dos seus dados</strong><small>Baixe uma cópia dos seus registros para guardá-los ou levá-los a outro dispositivo.</small><div class="settings-actions"><button class="botao-secundario small" id="btn-exportar-backup" type="button">Baixar backup</button><button class="botao-secundario small" id="btn-importar-backup" type="button">Importar backup</button></div><input id="backup-input" type="file" accept="application/json,.json" hidden></div><p id="config-pref-msg" class="form-message" aria-live="polite"></p><div class="settings-actions"><button class="botao" id="btn-salvar-preferencias" type="button">Salvar preferências</button></div></section>
+    <section class="settings-panel" data-settings-panel="sobre"><p class="eyebrow">SOBRE O PROJETO</p><h3>Descrição do app</h3>
+      <div class="sobre-texto"><p>O <strong>Minha Plantinha</strong> foi desenvolvido por uma equipe de alunos da Cruzeiro do Sul – São Miguel, com o objetivo de ajudar crianças no processo de aprendizado sobre o meio ambiente e sua relação com a saúde.</p>
+      <p>Por meio do cuidado com uma plantinha, o aplicativo busca ensinar de forma simples e divertida a importância de cuidar da natureza, desenvolver hábitos de cuidado e compreender como o meio ambiente pode influenciar nossa qualidade de vida e saúde.</p></div>
+      <div class="sobre-criadores"><p class="eyebrow">CRIADORES</p><h4>Criadores</h4><ul id="lista-criadores" class="lista-criadores"></ul></div>
+    </section>
+    <section class="settings-panel admin-settings-panel escondido" data-settings-panel="admin" id="settings-admin-panel"><p class="eyebrow">ADMINISTRAÇÃO</p><h3>Controle administrativo</h3><p class="muted">Ative esta opção para liberar o avanço manual das etapas na tela da planta e os botões de liberar conquistas na tela de conquistas.</p><label class="toggle-row"><span><strong>Admin ativado</strong><small>Quando ativo, aparecem “Avançar no tempo” e “Liberar conquista”.</small></span><input id="admin-ativado" type="checkbox"><span class="toggle-track"></span></label><p id="admin-config-msg" class="form-message" aria-live="polite"></p><div class="settings-actions"><button class="botao" id="btn-salvar-admin" type="button">Salvar configuração</button></div><div class="notice">O controle administrativo desta versão é local. Ele não substitui autenticação e autorização de um backend.</div></section>
+  </div></div>
+</section>
+
+<section id="tela-jogos" class="tela">
+  <header class="page-heading"><p class="eyebrow">APRENDER FAZENDO</p><h2>Jogos educativos</h2><p class="subtitulo">Explore botânica e sustentabilidade com desafios rápidos.</p></header>
+  <div class="game-tabs" role="group" aria-label="Escolha um jogo"><button class="game-tab active" data-game="quiz" type="button">Quiz ambiental</button><button class="game-tab" data-game="partes" type="button">Monte sua planta</button><button class="game-tab" data-game="cuidados" type="button">Cuide da planta</button></div>
+  <div id="game-area" class="panel game-area"><p class="eyebrow">DESAFIO INTERATIVO</p><h3>Quiz ambiental</h3><p>Responda, veja a explicação de cada resposta e acompanhe seu aproveitamento até o fim da rodada.</p><div class="quiz-intro">Os desafios agora misturam cultivo, botânica, água, solo, biodiversidade e sustentabilidade.</div><button class="botao" id="game-start" type="button">Começar</button></div><p id="game-feedback" class="game-feedback" aria-live="polite"></p>
+</section>
+
+<section id="tela-fim" class="tela"><div class="empty-state panel"><div class="empty-icon"><svg viewBox="0 0 24 24"><path d="M12 3C9.5 7 6 10.2 6 14a6 6 0 0 0 12 0c0-3.8-3.5-7-6-11Z"/></svg></div><h2>Até logo</h2><p>Sua sessão foi encerrada.</p><button class="botao" id="btn-voltar-login-fim" type="button">Voltar ao login</button></div></section>
+
+</main>
+
+<div id="modal-mensagem" class="modal escondido" role="dialog" aria-modal="true" aria-labelledby="modal-titulo"><div class="modal-conteudo" id="modal-conteudo"><div class="achievement-unlock-label" id="modal-etiqueta" hidden>CONQUISTA DESBLOQUEADA</div><div id="modal-icone" class="modal-icone" aria-hidden="true"></div><h3 id="modal-titulo">Título</h3><p id="modal-texto">Texto da mensagem.</p><button class="botao" id="btn-fechar-modal" type="button">Entendi</button></div></div>
+<div id="photo-modal" class="photo-modal escondido" role="dialog" aria-modal="true" aria-labelledby="photo-modal-title"><button id="btn-fechar-photo-modal" class="photo-modal-close" type="button" aria-label="Fechar imagem"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button><h2 id="photo-modal-title">Fotografia da planta</h2><img id="photo-modal-img" alt="Fotografia real da plantinha"></div>
+<div id="toast" class="toast" aria-live="polite"></div>
+
+<script src="js/conteudo.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
