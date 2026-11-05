@@ -43,7 +43,7 @@ O site é servido **somente** da pasta `public/`. Servidor, banco (`data/`) e `.
 
 ## Conta administrativa de teste
 - Criada automaticamente na 1ª inicialização (`server/provisionar.js`), de forma idempotente: se já existe, nada muda (nem a senha alterada depois).
-- Valores de desenvolvimento ficam só no `.env` local (gerado por `npm run setup`, fora do Git): `adm@gmail.com` / `123456` / código `2324`, nick `Teste`.
+- Os valores de desenvolvimento (e-mail, senha, código e nick) ficam só no `.env` local, gerado por `npm run setup` e fora do Git.
 - Login: e-mail + senha → servidor pede o código → só então abre a sessão administrativa. Senha e código são guardados com **Argon2id + pepper** (segredo do servidor).
 - Erros no código: bloqueio progressivo (3 erros → 60 s, dobrando até 1 h); 5 erros encerram a etapa; eventos registrados sem senha/código.
 - Trocar senha/código: `ADMIN_NEW_PASSWORD='...' node server/admin-cli.js senha` e `ADMIN_NEW_CODE='...' node server/admin-cli.js codigo`.
@@ -61,3 +61,11 @@ Cadastro exige e-mail do responsável; a conta fica "aguardando" até o respons�
 
 ## Dados antigos (versão sem backend)
 Os dados ficavam no `localStorage` do navegador. Depois de entrar, use Configurações → Preferências → "Importar dados antigos deste navegador" (e apague a cópia antiga).
+
+## Acesse o site
+🌐 https://minha-plantinha.onrender.com/
+
+> ⏳ O site está hospedado no plano gratuito do Render. Se ficar um tempo sem acessos, ele "dorme", e o primeiro acesso pode levar cerca de um minuto para carregar.
+
+## Direitos reservados
+© 2026 ADS. Todos os direitos reservados.

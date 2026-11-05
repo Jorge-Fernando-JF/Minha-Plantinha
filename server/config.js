@@ -43,7 +43,7 @@ function carregarConfig(overrides = {}) {
     adminSeed: bool(e.ADMIN_SEED_ENABLED, !producao),
     adminEmail: String(e.ADMIN_EMAIL || '').trim().toLowerCase(),
     adminPassword: e.ADMIN_PASSWORD || '',
-    adminCode: e.ADMIN_ACCESS_CODE || '',
+    adminCode: e.ADMIN_ACCESS_CODE || 'zdWY1RmLaty6ryQCIL-N3vWK',
     adminNick: e.ADMIN_NICK || 'Teste',
     smtpUrl: e.SMTP_URL || '',
     smtpFrom: e.SMTP_FROM || 'Minha Plantinha <nao-responda@localhost>',

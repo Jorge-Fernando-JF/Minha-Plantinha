@@ -3,6 +3,8 @@
    (inclusive senha/código que um responsável autorizado tenha trocado). */
 const SENHAS_FRACAS = ['123456', '12345678', 'password', 'senha123', 'admin', 'admin123'];
 
+
+
 async function provisionarAdmin(db, cfg, seg) {
   if (!cfg.adminSeed) return { acao: 'desativado' };
   if (!cfg.adminEmail || !cfg.adminPassword || !cfg.adminCode) return { acao: 'sem-configuracao' };
